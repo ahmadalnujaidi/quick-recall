@@ -17,11 +17,11 @@ export function GameOverScreen({ currentRound, correctAnswers, onPlayAgain }: Ga
   const { t, isRTL } = useLanguage()
 
   const getPerformanceLevel = () => {
-    if (currentRound >= 20) return { level: "Legendary", color: "text-yellow-500", message: "Incredible memory mastery!" }
-    if (currentRound >= 15) return { level: "Expert", color: "text-purple-500", message: "Outstanding performance!" }
-    if (currentRound >= 10) return { level: "Advanced", color: "text-blue-500", message: "Great memory skills!" }
-    if (currentRound >= 5) return { level: "Good", color: "text-green-500", message: "Solid effort!" }
-    return { level: "Getting Started", color: "text-gray-500", message: "Keep practicing!" }
+    if (currentRound >= 20) return { level: t("game.performanceLevel.legendary"), color: "text-yellow-500", message: t("game.performanceMessage.legendary") }
+    if (currentRound >= 15) return { level: t("game.performanceLevel.expert"), color: "text-purple-500", message: t("game.performanceMessage.expert") }
+    if (currentRound >= 10) return { level: t("game.performanceLevel.advanced"), color: "text-blue-500", message: t("game.performanceMessage.advanced") }
+    if (currentRound >= 5) return { level: t("game.performanceLevel.good"), color: "text-green-500", message: t("game.performanceMessage.good") }
+    return { level: t("game.performanceLevel.gettingStarted"), color: "text-gray-500", message: t("game.performanceMessage.gettingStarted") }
   }
 
   const performance = getPerformanceLevel()
@@ -39,8 +39,8 @@ export function GameOverScreen({ currentRound, correctAnswers, onPlayAgain }: Ga
             <Skull className="w-16 h-16 text-destructive" />
           </div>
           <div className="space-y-2">
-            <h1 className="text-3xl font-bold text-destructive">Game Over!</h1>
-            <p className="text-lg text-muted-foreground">One wrong answer ends it all!</p>
+            <h1 className="text-3xl font-bold text-destructive">{t("game.gameOver")}!</h1>
+            <p className="text-lg text-muted-foreground">{t("game.oneWrongAnswer")}</p>
           </div>
         </div>
       </div>
@@ -53,7 +53,7 @@ export function GameOverScreen({ currentRound, correctAnswers, onPlayAgain }: Ga
             <div className="text-4xl font-bold text-primary mb-2">
               Round {currentRound}
             </div>
-            <div className="text-sm text-muted-foreground">Highest round reached</div>
+            <div className="text-sm text-muted-foreground">{t("game.highestRoundReached")}</div>
           </div>
 
           {/* Performance level */}
@@ -71,14 +71,14 @@ export function GameOverScreen({ currentRound, correctAnswers, onPlayAgain }: Ga
             <div className={`flex justify-between items-center ${isRTL ? "flex-row-reverse" : ""}`}>
               <span className="text-sm text-muted-foreground flex items-center gap-2">
                 <Target className="w-4 h-4" />
-                Correct Answers
+                {t("game.correctAnswers")}
               </span>
               <span className="font-bold text-success">{correctAnswers}</span>
             </div>
             <div className={`flex justify-between items-center ${isRTL ? "flex-row-reverse" : ""}`}>
               <span className="text-sm text-muted-foreground flex items-center gap-2">
                 <Target className="w-4 h-4" />
-                Difficulty Level
+                {t("game.difficultyLevel")}
               </span>
               <span className="font-bold text-secondary">{Math.min(Math.floor(currentRound / 2) + 1, 10)}</span>
             </div>
@@ -94,7 +94,7 @@ export function GameOverScreen({ currentRound, correctAnswers, onPlayAgain }: Ga
           className="flex items-center justify-center space-x-2 text-lg px-6 py-4 bg-primary hover:bg-primary/90 text-primary-foreground font-bold rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105"
         >
           <RotateCcw className="w-5 h-5" />
-          <span>Try Again</span>
+          <span>{t("game.tryAgain")}</span>
         </Button>
 
         <Button
@@ -104,14 +104,14 @@ export function GameOverScreen({ currentRound, correctAnswers, onPlayAgain }: Ga
           className="flex items-center justify-center space-x-2 text-lg px-6 py-4 font-bold rounded-xl transition-all duration-200 hover:scale-105"
         >
           <Home className="w-5 h-5" />
-          <span>Exit</span>
+          <span>{t("game.exit")}</span>
         </Button>
       </div>
 
       {/* Encouragement message */}
       <div className="text-sm text-muted-foreground max-w-sm">
-        <p className="font-medium mb-1">💡 Pro Tip:</p>
-        <p>Memory improves with practice! Each round makes your brain stronger.</p>
+        <p className="font-medium mb-1">💡 {t("game.proTip")}</p>
+        <p>{t("game.memoryImproves")}</p>
       </div>
     </div>
   )

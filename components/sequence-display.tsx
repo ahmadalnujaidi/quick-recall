@@ -62,7 +62,7 @@ export function SequenceDisplay({ sequence, timeRemaining, round, totalRounds }:
             : t("game.enterSequence")}
         </p>
         <div className="text-xs text-primary/80">
-          {sequence.length} digits • Level {Math.min(Math.floor(round / 2) + 1, 10)}
+          {sequence.length} {t("game.digits")} • {t("game.level")} {Math.min(Math.floor(round / 2) + 1, 10)}
         </div>
       </div>
 

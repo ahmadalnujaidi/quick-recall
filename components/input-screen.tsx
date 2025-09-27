@@ -125,8 +125,8 @@ export function InputScreen({
       {/* Progress indicator */}
       <div className="text-xs text-muted-foreground">
         {!isComplete &&
-          `Enter ${sequence.length - userInput.length} more digit${sequence.length - userInput.length !== 1 ? "s" : ""}`}
-        {isComplete && "Ready to submit!"}
+          `${t("game.enterMoreDigits")}: ${sequence.length - userInput.length}`}
+        {isComplete && t("game.readyToSubmit")}
       </div>
     </div>
   )

@@ -33,7 +33,7 @@ export function StartScreen({ onStart, highScore }: StartScreenProps) {
           {t("game.title")}
         </h1>
         <p className="text-lg text-muted-foreground max-w-sm mx-auto text-pretty">{t("game.subtitle")}</p>
-        <p className="text-md text-primary font-semibold">Endless Challenge Mode</p>
+        {/* <p className="text-md text-primary font-semibold">{t("game.endlessChallenge")}</p> */}
       </div>
 
       {/* Start button */}
@@ -69,8 +69,8 @@ export function StartScreen({ onStart, highScore }: StartScreenProps) {
           </div>
         </div>
         <div className="pt-2 border-t border-muted">
-          <p className="text-xs text-primary">🎮 Challenge yourself! How many rounds can you survive?</p>
-          <p className="text-xs text-muted-foreground mt-1">One mistake ends the game. Each round gets harder!</p>
+          <p className="text-xs text-primary">🎮 {t("game.challengeYourself")}</p>
+          <p className="text-xs text-muted-foreground mt-1">{t("game.oneMistake")}</p>
         </div>
       </div>
 
@@ -79,16 +79,16 @@ export function StartScreen({ onStart, highScore }: StartScreenProps) {
         <div className="w-full max-w-sm bg-gradient-to-r from-yellow-500/10 to-orange-500/10 rounded-xl p-4 border border-yellow-500/20">
           <div className="flex items-center justify-center space-x-2 mb-2">
             <Trophy className="w-5 h-5 text-yellow-500" />
-            <span className="text-sm font-bold text-yellow-600">Current High Score</span>
+            <span className="text-sm font-bold text-yellow-600">{t("game.currentHighScore")}</span>
           </div>
           <div className="text-center space-y-1">
-            <div className="text-2xl font-bold text-primary">Round {highScore.score}</div>
+            <div className="text-2xl font-bold text-primary">{t("game.round")} {highScore.score}</div>
             <div className="text-sm text-muted-foreground">
-              held by <span className="font-semibold text-foreground">{highScore.playerName || "Anonymous"}</span>
+              {t("game.heldBy")} <span className="font-semibold text-foreground">{highScore.playerName || t("game.anonymous")}</span>
             </div>
             <div className="flex items-center justify-center space-x-1 text-xs text-muted-foreground">
               <Target className="w-3 h-3" />
-              <span>Beat this score to claim the crown!</span>
+              <span>{t("game.beatThisScore")}</span>
             </div>
           </div>
         </div>
@@ -96,8 +96,8 @@ export function StartScreen({ onStart, highScore }: StartScreenProps) {
 
       {highScore.score === 0 && (
         <div className="text-center p-4 bg-muted/30 rounded-lg border border-muted">
-          <p className="text-sm text-muted-foreground">No high score yet!</p>
-          <p className="text-xs text-primary mt-1">Be the first to set a record</p>
+          <p className="text-sm text-muted-foreground">{t("game.noHighScore")}</p>
+          <p className="text-xs text-primary mt-1">{t("game.firstRecord")}</p>
         </div>
       )}
     </div>

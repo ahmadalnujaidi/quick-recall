@@ -121,7 +121,7 @@ export function FeedbackScreen({
         size="lg"
         className="flex items-center space-x-2 text-xl px-8 py-6 bg-primary hover:bg-primary/90 text-primary-foreground font-bold rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105"
       >
-        <span>{isCorrect ? t("game.nextRound") : "Game Over"}</span>
+        <span>{isCorrect ? t("game.nextRound") : t("game.gameOver")}</span>
         <ArrowRight className="w-5 h-5" />
       </Button>
 
