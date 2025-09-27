@@ -1,0 +1,385 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Updated theme to match vibrant, playful design inspiration */
+  --background: #ffffff;
+  --foreground: #000000;
+  --card: #ffffff;
+  --card-foreground: #000000;
+  --popover: #ffffff;
+  --popover-foreground: #000000;
+  --primary: #8b5cf6; /* Vivid Purple */
+  --primary-foreground: #ffffff;
+  /* Replaced invisible light purple with visible brand colors */
+  --secondary: #00a3ff; /* Neon Blue instead of invisible light purple */
+  --secondary-foreground: #ffffff;
+  --muted: #f8f9fa; /* Light gray instead of invisible purple tint */
+  --muted-foreground: #6b7280;
+  --accent: #ff00ff; /* Pink accent */
+  --accent-foreground: #ffffff;
+  --destructive: #ff2d55; /* Red from brand palette */
+  --destructive-foreground: #ffffff;
+  --success: #00ff73; /* Neon Green from brand palette */
+  --success-foreground: #000000;
+  --border: #e2e8f0; /* Visible light gray border instead of invisible purple */
+  --input: #f8f9fa; /* Light gray input background instead of invisible purple */
+  --ring: #8b5cf6; /* Vivid Purple for focus rings */
+  --chart-1: #8b5cf6; /* Vivid Purple */
+  --chart-2: #ff00ff; /* Pink */
+  --chart-3: #ffd700; /* Yellow */
+  --chart-4: #00ff73; /* Neon Green */
+  --chart-5: #00a3ff; /* Neon Blue */
+  --radius: 1rem;
+  --sidebar: #ffffff;
+  --sidebar-foreground: #000000;
+  --sidebar-primary: #8b5cf6;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #faf9ff;
+  --sidebar-accent-foreground: #000000;
+  --sidebar-border: #e9e5ff;
+  --sidebar-ring: #8b5cf6;
+
+  /* Added brand-specific color variables for memory game */
+  --brand-purple: #8b5cf6;
+  --brand-black: #000000;
+  --brand-white: #ffffff;
+  --brand-pink: #ff00ff;
+  --brand-yellow: #ffd700;
+  --brand-green: #00ff73;
+  --brand-blue: #00a3ff;
+  --brand-red: #ff2d55;
+  --brand-orange: #ff7f00;
+}
+
+.dark {
+  /* Dark mode using brand black as base */
+  --background: #000000;
+  --foreground: #ffffff;
+  --card: #111111;
+  --card-foreground: #ffffff;
+  --popover: #111111;
+  --popover-foreground: #ffffff;
+  --primary: #a855f7; /* Slightly lighter purple for dark mode */
+  --primary-foreground: #000000;
+  /* Replaced invisible dark purple with visible brand colors */
+  --secondary: #00a3ff; /* Neon Blue remains visible in dark mode */
+  --secondary-foreground: #ffffff;
+  --muted: #1e293b; /* Visible dark gray instead of invisible dark purple */
+  --muted-foreground: #9ca3af;
+  --accent: #ff00ff; /* Pink accent remains vibrant */
+  --accent-foreground: #000000;
+  --destructive: #ff2d55;
+  --destructive-foreground: #ffffff;
+  --success: #00ff73;
+  --success-foreground: #000000;
+  --border: #334155; /* Visible dark gray border instead of invisible dark purple */
+  --input: #1e293b; /* Visible dark gray input background */
+  --ring: #a855f7;
+  --sidebar: #000000;
+  --sidebar-foreground: #ffffff;
+  --sidebar-primary: #a855f7;
+  --sidebar-primary-foreground: #000000;
+  --sidebar-accent: #1a0f3d;
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: #4c1d95;
+  --sidebar-ring: #a855f7;
+}
+
+@theme inline {
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --font-arabic: var(--font-noto-sans-arabic);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  /* Added brand color utilities */
+  --color-brand-purple: var(--brand-purple);
+  --color-brand-black: var(--brand-black);
+  --color-brand-white: var(--brand-white);
+  --color-brand-pink: var(--brand-pink);
+  --color-brand-yellow: var(--brand-yellow);
+  --color-brand-green: var(--brand-green);
+  --color-brand-blue: var(--brand-blue);
+  --color-brand-red: var(--brand-red);
+  --color-brand-orange: var(--brand-orange);
+}
+
+@layer base {
+  * {
+    border-color: var(--border);
+    outline-color: rgba(139, 92, 246, 0.5); /* Purple focus outline */
+  }
+  body {
+    @apply bg-background text-foreground font-sans;
+  }
+
+  [dir="rtl"] {
+    direction: rtl;
+    font-family: var(--font-arabic), var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+  }
+
+  [dir="ltr"] {
+    direction: ltr;
+  }
+
+  [dir="rtl"] .space-x-2 > * + * {
+    margin-right: 0.5rem;
+    margin-left: 0;
+  }
+
+  [dir="rtl"] .space-x-4 > * + * {
+    margin-right: 1rem;
+    margin-left: 0;
+  }
+
+  [dir="rtl"] .space-x-reverse > * + * {
+    margin-left: 0.5rem;
+    margin-right: 0;
+  }
+
+  .font-arabic {
+    font-family: var(--font-arabic), var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+  }
+}
+
+/* Kiosk-specific optimizations for 1080x1920 portrait display */
+@layer utilities {
+  /* Kiosk portrait optimization */
+  .kiosk-container {
+    min-height: 100vh;
+    min-height: 100dvh; /* Dynamic viewport height for mobile devices */
+    width: 100vw;
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* Responsive scaling for kiosk display */
+  @media (min-height: 1800px) {
+    .kiosk-container {
+      padding: 3rem;
+    }
+    
+    /* Scale up text and elements for large kiosk displays */
+    .kiosk-text-lg { font-size: 1.5rem; }
+    .kiosk-text-xl { font-size: 2rem; }
+    .kiosk-text-2xl { font-size: 2.5rem; }
+    .kiosk-text-3xl { font-size: 3rem; }
+    .kiosk-text-4xl { font-size: 4rem; }
+    
+    /* Scale up spacing for large displays */
+    .kiosk-space-y-6 > * + * { margin-top: 2rem; }
+    .kiosk-space-y-8 > * + * { margin-top: 2.5rem; }
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.5s ease-out;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.4s ease-out;
+  }
+
+  .animate-wiggle {
+    animation: wiggle 0.5s ease-in-out;
+  }
+
+  .animate-glow {
+    animation: glow 2s ease-in-out infinite alternate;
+  }
+
+  .rtl {
+    direction: rtl;
+  }
+
+  .ltr {
+    direction: ltr;
+  }
+
+  /* Brand color utilities */
+  .bg-brand-purple {
+    background-color: var(--brand-purple);
+  }
+  .bg-brand-black {
+    background-color: var(--brand-black);
+  }
+  .bg-brand-white {
+    background-color: var(--brand-white);
+  }
+  .bg-brand-pink {
+    background-color: var(--brand-pink);
+  }
+  .bg-brand-yellow {
+    background-color: var(--brand-yellow);
+  }
+  .bg-brand-green {
+    background-color: var(--brand-green);
+  }
+  .bg-brand-blue {
+    background-color: var(--brand-blue);
+  }
+  .bg-brand-red {
+    background-color: var(--brand-red);
+  }
+  .bg-brand-orange {
+    background-color: var(--brand-orange);
+  }
+
+  .text-brand-purple {
+    color: var(--brand-purple);
+  }
+  .text-brand-black {
+    color: var(--brand-black);
+  }
+  .text-brand-white {
+    color: var(--brand-white);
+  }
+  .text-brand-pink {
+    color: var(--brand-pink);
+  }
+  .text-brand-yellow {
+    color: var(--brand-yellow);
+  }
+  .text-brand-green {
+    color: var(--brand-green);
+  }
+  .text-brand-blue {
+    color: var(--brand-blue);
+  }
+  .text-brand-red {
+    color: var(--brand-red);
+  }
+  .text-brand-orange {
+    color: var(--brand-orange);
+  }
+
+  .border-brand-purple {
+    border-color: var(--brand-purple);
+  }
+  .border-brand-black {
+    border-color: var(--brand-black);
+  }
+  .border-brand-white {
+    border-color: var(--brand-white);
+  }
+  .border-brand-pink {
+    border-color: var(--brand-pink);
+  }
+  .border-brand-yellow {
+    border-color: var(--brand-yellow);
+  }
+  .border-brand-green {
+    border-color: var(--brand-green);
+  }
+  .border-brand-blue {
+    border-color: var(--brand-blue);
+  }
+  .border-brand-red {
+    border-color: var(--brand-red);
+  }
+  .border-brand-orange {
+    border-color: var(--brand-orange);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes wiggle {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-3deg);
+  }
+  75% {
+    transform: rotate(3deg);
+  }
+}
+
+@keyframes glow {
+  from {
+    box-shadow: 0 0 20px -10px currentColor;
+  }
+  to {
+    box-shadow: 0 0 30px -5px currentColor;
+  }
+}
