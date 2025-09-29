@@ -38,15 +38,6 @@ export function StartScreen({ onStart, highScore }: StartScreenProps) {
         {/* <p className="text-md text-primary font-semibold">{t("game.endlessChallenge")}</p> */}
       </div>
 
-      {/* Start button */}
-      <Button
-        onClick={onStart}
-        size="lg"
-        className="text-3xl px-22 py-12 bg-primary hover:bg-primary/90 text-primary-foreground font-bold rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105 w-full"
-      >
-        {t("game.start")}
-      </Button>
-
       {/* Instructions */}
       <div className="text-2xl text-muted-foreground mx-auto space-y-3 flex flex-col gap-5">
         <p className="font-medium mb-3">{t("game.howToPlay")}</p>
@@ -90,6 +81,15 @@ export function StartScreen({ onStart, highScore }: StartScreenProps) {
           </p>
         </div>
       </div>
+
+      {/* Start button */}
+      <Button
+        onClick={onStart}
+        size="lg"
+        className="text-3xl px-22 py-12 bg-primary hover:bg-primary/90 text-primary-foreground font-bold rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105 w-full"
+      >
+        {t("game.start")}
+      </Button>
 
       {/* High Score Display */}
       {highScore.score > 0 && (
