@@ -64,14 +64,14 @@ export function TouchKeyboard({ value, onChange, onSubmit, maxLength = 20 }: Tou
   }
 
   return (
-    <div className="w-full max-w-lg mx-auto space-y-3">
+    <div className="w-full mx-auto space-y-4 p-4">
       {/* Language Toggle */}
-      <div className="flex justify-center mb-2">
+      <div className="flex justify-center mb-3">
         <Button
           onClick={toggleLayout}
           variant="outline"
-          size="sm"
-          className="h-10 px-4 text-sm font-semibold hover:bg-primary hover:text-primary-foreground touch-manipulation"
+          size="lg"
+          className="h-16 px-8 text-xl font-semibold hover:bg-primary hover:text-primary-foreground touch-manipulation"
         >
           {currentLayout === 'en' ? 'عربي' : 'English'}
         </Button>
@@ -80,14 +80,14 @@ export function TouchKeyboard({ value, onChange, onSubmit, maxLength = 20 }: Tou
 
       {/* Letter Rows */}
       {currentRows.map((row, rowIndex) => (
-        <div key={rowIndex} className="flex justify-center gap-1" dir={currentLayout === 'ar' ? 'rtl' : 'ltr'}>
+        <div key={rowIndex} className="flex justify-center gap-2" dir={currentLayout === 'ar' ? 'rtl' : 'ltr'}>
           {/* Shift button on last row (only for English) */}
           {rowIndex === 2 && currentLayout === 'en' && (
             <Button
               onClick={handleShift}
               variant="outline"
-              size="sm"
-              className={`h-12 w-16 text-xs font-semibold touch-manipulation ${
+              size="lg"
+              className={`h-16 w-20 text-lg font-semibold touch-manipulation ${
                 isShift ? 'bg-primary text-primary-foreground' : 'hover:bg-secondary hover:text-secondary-foreground'
               }`}
             >
@@ -100,9 +100,9 @@ export function TouchKeyboard({ value, onChange, onSubmit, maxLength = 20 }: Tou
               key={letter}
               onClick={() => handleKeyPress(letter)}
               variant="outline"
-              size="sm"
-              className={`h-12 text-lg font-semibold hover:bg-secondary hover:text-secondary-foreground touch-manipulation ${
-                currentLayout === 'ar' ? 'w-8' : 'w-10'
+              size="lg"
+              className={`h-16 text-2xl font-semibold hover:bg-secondary hover:text-secondary-foreground touch-manipulation ${
+                currentLayout === 'ar' ? 'w-14' : 'w-16'
               }`}
             >
               {currentLayout === 'ar' ? letter : (isShift ? letter.toUpperCase() : letter.toLowerCase())}
@@ -114,8 +114,8 @@ export function TouchKeyboard({ value, onChange, onSubmit, maxLength = 20 }: Tou
             <Button
               onClick={handleBackspace}
               variant="outline"
-              size="sm"
-              className="h-12 w-16 text-xs hover:bg-destructive/10 hover:text-destructive touch-manipulation"
+              size="lg"
+              className="h-16 w-20 text-lg hover:bg-destructive/10 hover:text-destructive touch-manipulation"
             >
               ⌫
             </Button>
@@ -124,12 +124,12 @@ export function TouchKeyboard({ value, onChange, onSubmit, maxLength = 20 }: Tou
       ))}
 
       {/* Bottom Row - Space, Clear, Submit */}
-      <div className="flex justify-center gap-2">
+      <div className="flex justify-center gap-3">
         <Button
           onClick={handleClear}
           variant="outline"
-          size="sm"
-          className="h-12 px-4 text-sm font-semibold hover:bg-muted hover:text-muted-foreground touch-manipulation"
+          size="lg"
+          className="h-16 px-6 text-lg font-semibold hover:bg-muted hover:text-muted-foreground touch-manipulation"
         >
           {t("game.clear")}
         </Button>
@@ -137,8 +137,8 @@ export function TouchKeyboard({ value, onChange, onSubmit, maxLength = 20 }: Tou
         <Button
           onClick={handleSpace}
           variant="outline"
-          size="sm"
-          className="h-12 flex-1 max-w-32 text-sm font-semibold hover:bg-secondary hover:text-secondary-foreground touch-manipulation"
+          size="lg"
+          className="h-16 flex-1 max-w-48 text-lg font-semibold hover:bg-secondary hover:text-secondary-foreground touch-manipulation"
         >
           {t("game.space")}
         </Button>
@@ -146,8 +146,8 @@ export function TouchKeyboard({ value, onChange, onSubmit, maxLength = 20 }: Tou
         <Button
           onClick={onSubmit}
           disabled={!value.trim()}
-          size="sm"
-          className="h-12 px-6 text-sm font-bold bg-yellow-500 hover:bg-yellow-600 text-black touch-manipulation disabled:opacity-50"
+          size="lg"
+          className="h-16 px-8 text-lg font-bold bg-yellow-500 hover:bg-yellow-600 text-black touch-manipulation disabled:opacity-50"
         >
           {t("game.save")}
         </Button>

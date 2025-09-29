@@ -1,14 +1,20 @@
-"use client"
+"use client";
 
-import { createContext, useContext, useState, useEffect, type ReactNode } from "react"
+import {
+  createContext,
+  useContext,
+  useState,
+  useEffect,
+  type ReactNode,
+} from "react";
 
-type Language = "en" | "ar"
+type Language = "en" | "ar";
 
 interface LanguageContextType {
-  language: Language
-  setLanguage: (lang: Language) => void
-  t: (key: string) => string
-  isRTL: boolean
+  language: Language;
+  setLanguage: (lang: Language) => void;
+  t: (key: string) => string;
+  isRTL: boolean;
 }
 
 const translations = {
@@ -63,32 +69,41 @@ const translations = {
     "game.didYouKnow": "Did you know?",
 
     // Performance Messages
-    "game.performance.excellent": "Outstanding memory skills! You're a recall champion!",
+    "game.performance.excellent":
+      "Outstanding memory skills! You're a recall champion!",
     "game.performance.good": "Great job! Your memory is sharp and improving!",
-    "game.performance.fair": "Good effort! Keep practicing to boost your recall!",
-    "game.performance.poor": "Every expert was once a beginner. Keep training your memory!",
+    "game.performance.fair":
+      "Good effort! Keep practicing to boost your recall!",
+    "game.performance.poor":
+      "Every expert was once a beginner. Keep training your memory!",
 
     // Fun Facts
-    "game.fact.excellent": "Your working memory capacity is above average! Most people can only hold 7±2 items.",
-    "game.fact.good": "Regular memory training can improve your recall by up to 40%!",
-    "game.fact.fair": "Memory games like this can help improve focus and cognitive flexibility.",
-    "game.fact.poor": "The average person forgets 50% of new information within an hour. Practice helps!",
+    "game.fact.excellent":
+      "Your working memory capacity is above average! Most people can only hold 7±2 items.",
+    "game.fact.good":
+      "Regular memory training can improve your recall by up to 40%!",
+    "game.fact.fair":
+      "Memory games like this can help improve focus and cognitive flexibility.",
+    "game.fact.poor":
+      "The average person forgets 50% of new information within an hour. Practice helps!",
 
     // Name Entry Screen
     "game.newHighScore": "New High Score!",
     "game.congratulations": "Congratulations!",
-    "game.enterNamePrompt": "You've set a new high score! Enter your name to claim this achievement.",
+    "game.enterNamePrompt":
+      "You've set a new high score! Enter your name to claim this achievement.",
     "game.enterYourName": "Enter your name...",
     "game.saveHighScore": "Save High Score",
     "game.useKeyboard": "Use the keyboard above to enter your name",
     "game.amazingAchievement": "Amazing Achievement!",
-    "game.memorySkillsExceptional": "Your memory skills are truly exceptional. This score will be remembered!",
+    "game.memorySkillsExceptional":
+      "Your memory skills are truly exceptional. This score will be remembered!",
 
     // Game Over Screen
     "game.gameOver": "Game Over",
     "game.oneWrongAnswer": "One wrong answer ends it all!",
     "game.performanceLevel.legendary": "Legendary",
-    "game.performanceLevel.expert": "Expert", 
+    "game.performanceLevel.expert": "Expert",
     "game.performanceLevel.advanced": "Advanced",
     "game.performanceLevel.good": "Good",
     "game.performanceLevel.gettingStarted": "Getting Started",
@@ -102,11 +117,13 @@ const translations = {
     "game.difficultyLevel": "Difficulty Level",
     "game.tryAgain": "Try Again",
     "game.proTip": "Pro Tip:",
-    "game.memoryImproves": "Memory improves with practice! Each round makes your brain stronger.",
+    "game.memoryImproves":
+      "Memory improves with practice! Each round makes your brain stronger.",
 
     // Start Screen
     "game.endlessChallenge": "Endless Challenge Mode",
-    "game.challengeYourself": "Challenge yourself! How many rounds can you survive?",
+    "game.challengeYourself":
+      "Challenge yourself! How many rounds can you survive?",
     "game.oneMistake": "One mistake ends the game. Each round gets harder!",
     "game.currentHighScore": "Current High Score",
     "game.heldBy": "held by",
@@ -120,7 +137,7 @@ const translations = {
     "game.enterMoreDigits": "Enter more digits",
     "game.digits": "digits",
     "game.level": "Level",
-    "game.clear": "Clear",
+    // "game.clear": "Clear",
     "game.space": "Space",
     "game.save": "Save",
     "game.shift": "SHIFT",
@@ -178,24 +195,32 @@ const translations = {
     // Performance Messages
     "game.performance.excellent": "مهارات ذاكرة استثنائية! أنت بطل في التذكر!",
     "game.performance.good": "عمل رائع! ذاكرتك قوية ومتطورة!",
-    "game.performance.fair": "جهد جيد! استمر في التدريب لتحسين قدرتك على التذكر!",
-    "game.performance.poor": "كل خبير كان مبتدئاً يوماً ما. استمر في تدريب ذاكرتك!",
+    "game.performance.fair":
+      "جهد جيد! استمر في التدريب لتحسين قدرتك على التذكر!",
+    "game.performance.poor":
+      "كل خبير كان مبتدئاً يوماً ما. استمر في تدريب ذاكرتك!",
 
     // Fun Facts
-    "game.fact.excellent": "سعة ذاكرتك العاملة أعلى من المتوسط! معظم الناس يحتفظون بـ ٧±٢ عنصر فقط.",
-    "game.fact.good": "التدريب المنتظم للذاكرة يمكن أن يحسن قدرتك على التذكر بنسبة تصل إلى ٤٠٪!",
-    "game.fact.fair": "ألعاب الذاكرة مثل هذه تساعد في تحسين التركيز والمرونة المعرفية.",
-    "game.fact.poor": "الشخص العادي ينسى ٥٠٪ من المعلومات الجديدة خلال ساعة. التدريب يساعد!",
+    "game.fact.excellent":
+      "سعة ذاكرتك العاملة أعلى من المتوسط! معظم الناس يحتفظون بـ ٧±٢ عنصر فقط.",
+    "game.fact.good":
+      "التدريب المنتظم للذاكرة يمكن أن يحسن قدرتك على التذكر بنسبة تصل إلى ٤٠٪!",
+    "game.fact.fair":
+      "ألعاب الذاكرة مثل هذه تساعد في تحسين التركيز والمرونة المعرفية.",
+    "game.fact.poor":
+      "الشخص العادي ينسى ٥٠٪ من المعلومات الجديدة خلال ساعة. التدريب يساعد!",
 
     // Name Entry Screen
     "game.newHighScore": "رقم قياسي جديد!",
     "game.congratulations": "تهانينا!",
-    "game.enterNamePrompt": "لقد حققت رقماً قياسياً جديداً! أدخل اسمك لتسجيل هذا الإنجاز.",
+    "game.enterNamePrompt":
+      "لقد حققت رقماً قياسياً جديداً! أدخل اسمك لتسجيل هذا الإنجاز.",
     "game.enterYourName": "أدخل اسمك...",
     "game.saveHighScore": "حفظ الرقم القياسي",
     "game.useKeyboard": "استخدم لوحة المفاتيح أعلاه لإدخال اسمك",
     "game.amazingAchievement": "إنجاز مذهل!",
-    "game.memorySkillsExceptional": "مهاراتك في الذاكرة استثنائية حقاً. هذا الرقم سيُذكر!",
+    "game.memorySkillsExceptional":
+      "مهاراتك في الذاكرة استثنائية حقاً. هذا الرقم سيُذكر!",
 
     // Game Over Screen
     "game.gameOver": "انتهت اللعبة",
@@ -233,41 +258,51 @@ const translations = {
     "game.enterMoreDigits": "أدخل المزيد من الأرقام",
     "game.digits": "أرقام",
     "game.level": "المستوى",
-    "game.clear": "مسح",
+    // "game.clear": "مسح",
     "game.space": "مسافة",
     "game.save": "حفظ",
     "game.shift": "تبديل",
   },
-}
+};
 
-const LanguageContext = createContext<LanguageContextType | undefined>(undefined)
+const LanguageContext = createContext<LanguageContextType | undefined>(
+  undefined
+);
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
-  const [language, setLanguage] = useState<Language>("en")
+  const [language, setLanguage] = useState<Language>("en");
 
   const t = (key: string): string => {
-    return translations[language][key as keyof (typeof translations)[typeof language]] || key
-  }
+    return (
+      translations[language][
+        key as keyof (typeof translations)[typeof language]
+      ] || key
+    );
+  };
 
-  const isRTL = language === "ar"
+  const isRTL = language === "ar";
 
   useEffect(() => {
     // Apply RTL direction to document
-    document.documentElement.dir = isRTL ? "rtl" : "ltr"
-    document.documentElement.lang = language
+    document.documentElement.dir = isRTL ? "rtl" : "ltr";
+    document.documentElement.lang = language;
 
     if (typeof window !== "undefined") {
-      document.documentElement.setAttribute("lang", language)
+      document.documentElement.setAttribute("lang", language);
     }
-  }, [language, isRTL])
+  }, [language, isRTL]);
 
-  return <LanguageContext.Provider value={{ language, setLanguage, t, isRTL }}>{children}</LanguageContext.Provider>
+  return (
+    <LanguageContext.Provider value={{ language, setLanguage, t, isRTL }}>
+      {children}
+    </LanguageContext.Provider>
+  );
 }
 
 export function useLanguage() {
-  const context = useContext(LanguageContext)
+  const context = useContext(LanguageContext);
   if (context === undefined) {
-    throw new Error("useLanguage must be used within a LanguageProvider")
+    throw new Error("useLanguage must be used within a LanguageProvider");
   }
-  return context
+  return context;
 }

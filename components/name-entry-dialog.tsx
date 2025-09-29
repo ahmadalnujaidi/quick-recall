@@ -23,38 +23,38 @@ export function NameEntryDialog({ score, onSubmit }: NameEntryDialogProps) {
   }
 
   return (
-    <div className="flex flex-col items-center justify-center space-y-6 text-center max-w-2xl mx-auto px-4">
+    <div className="flex flex-col items-center justify-center space-y-8 text-center mx-auto px-4">
       {/* Celebration animation */}
-      <div className="flex flex-col items-center space-y-4 animate-fade-in">
-        <div className="p-6 bg-yellow-500/10 rounded-full animate-bounce">
-          <Trophy className="w-16 h-16 text-yellow-500" />
+      <div className="flex flex-col items-center space-y-6 animate-fade-in">
+        <div className="p-8 bg-yellow-500/10 rounded-full animate-bounce">
+          <Trophy className="w-24 h-24 text-yellow-500" />
         </div>
-        <div className="space-y-2">
-          <h1 className="text-3xl font-bold text-yellow-500">{t("game.newHighScore")}</h1>
-          <div className="flex items-center justify-center space-x-2">
-            <Star className="w-5 h-5 text-yellow-500" />
-            <span className="text-2xl font-bold text-primary">{t("game.round")} {score}</span>
-            <Star className="w-5 h-5 text-yellow-500" />
+        <div className="space-y-4">
+          <h1 className="text-5xl font-bold text-yellow-500">{t("game.newHighScore")}</h1>
+          <div className="flex items-center justify-center space-x-3">
+            <Star className="w-8 h-8 text-yellow-500" />
+            <span className="text-4xl font-bold text-primary">{t("game.round")} {score}</span>
+            <Star className="w-8 h-8 text-yellow-500" />
           </div>
         </div>
       </div>
 
       {/* Name entry form */}
-      <Card className="p-6 w-full bg-card border-2">
-        <div className="space-y-4">
+      <Card className="p-8 w-full bg-card border-2">
+        <div className="space-y-6">
           <div className="text-center">
-            <h2 className="text-xl font-bold text-foreground mb-2">
+            <h2 className="text-3xl font-bold text-foreground mb-3">
               {t("game.congratulations")}
             </h2>
-            <p className="text-sm text-muted-foreground">
+            <p className="text-xl text-muted-foreground">
               {t("game.enterNamePrompt")}
             </p>
           </div>
 
           {/* Name Display */}
-          <div className="mb-4">
-            <div className="min-h-[3rem] p-3 bg-muted/30 rounded-lg border-2 border-dashed border-muted-foreground/30 flex items-center justify-center">
-              <span className="text-lg font-medium text-foreground">
+          <div className="mb-6">
+            <div className="min-h-[4rem] p-4 bg-muted/30 rounded-lg border-2 border-dashed border-muted-foreground/30 flex items-center justify-center">
+              <span className="text-2xl font-medium text-foreground">
                 {name || t("game.enterYourName")}
               </span>
             </div>
@@ -68,15 +68,15 @@ export function NameEntryDialog({ score, onSubmit }: NameEntryDialogProps) {
             maxLength={20}
           />
 
-          <div className="text-xs text-muted-foreground text-center mt-2">
+          <div className="text-lg text-muted-foreground text-center mt-3">
             {t("game.useKeyboard")}
           </div>
         </div>
       </Card>
 
       {/* Achievement message */}
-      <div className="text-sm text-muted-foreground max-w-sm">
-        <p className="font-medium mb-1">🎉 {t("game.amazingAchievement")}</p>
+      <div className="text-xl text-muted-foreground">
+        <p className="font-medium mb-2">🎉 {t("game.amazingAchievement")}</p>
         <p>{t("game.memorySkillsExceptional")}</p>
       </div>
     </div>

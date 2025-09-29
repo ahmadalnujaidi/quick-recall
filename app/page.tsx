@@ -1,29 +1,30 @@
-"use client"
+"use client";
 
-import { useMemoryGame } from "@/hooks/use-memory-game"
-import { useLanguage } from "@/contexts/language-context"
-import { StartScreen } from "@/components/start-screen"
-import { SequenceDisplay } from "@/components/sequence-display"
-import { InputScreen } from "@/components/input-screen"
-import { FeedbackScreen } from "@/components/feedback-screen"
-import { GameOverScreen } from "@/components/game-over-screen"
-import { NameEntryDialog } from "@/components/name-entry-dialog"
-import { LanguageToggle } from "@/components/language-toggle"
+import { useMemoryGame } from "@/hooks/use-memory-game";
+import { useLanguage } from "@/contexts/language-context";
+import { StartScreen } from "@/components/start-screen";
+import { SequenceDisplay } from "@/components/sequence-display";
+import { InputScreen } from "@/components/input-screen";
+import { FeedbackScreen } from "@/components/feedback-screen";
+import { GameOverScreen } from "@/components/game-over-screen";
+import { NameEntryDialog } from "@/components/name-entry-dialog";
+import { LanguageToggle } from "@/components/language-toggle";
 
 export default function MemoryGamePage() {
-  const { isRTL } = useLanguage()
-  const game = useMemoryGame()
+  const { isRTL } = useLanguage();
+  const game = useMemoryGame();
 
   return (
-    <div className={`min-h-screen bg-background flex flex-col items-center justify-center p-6 ${isRTL ? "rtl" : "ltr"}`}>
+    <div
+      className={`min-h-screen bg-background flex flex-col items-center justify-center p-6 ${
+        isRTL ? "rtl" : "ltr"
+      }`}
+    >
       <LanguageToggle />
 
-      <div className={`w-full px-4 flex-1 flex items-center justify-center ${game.gameState === "nameEntry" ? "max-w-4xl" : "max-w-md"}`}>
+      <div className={`w-full px-4 flex-1 flex items-center justify-center`}>
         {game.gameState === "start" && (
-          <StartScreen 
-            onStart={game.startGame} 
-            highScore={game.highScore}
-          />
+          <StartScreen onStart={game.startGame} highScore={game.highScore} />
         )}
         {game.gameState === "display" && (
           <SequenceDisplay
@@ -70,5 +71,5 @@ export default function MemoryGamePage() {
         )}
       </div>
     </div>
-  )
+  );
 }

@@ -31,69 +31,69 @@ export function GameOverScreen({ currentRound, correctAnswers, onPlayAgain }: Ga
   }, [])
 
   return (
-    <div className="flex flex-col items-center justify-center space-y-6 text-center max-w-md mx-auto">
+    <div className="flex flex-col items-center justify-center space-y-8 text-center mx-auto px-4">
       {/* Game Over animation */}
       <div className={`transition-all duration-700 ${showAnimation ? "scale-100 opacity-100" : "scale-50 opacity-0"}`}>
-        <div className="flex flex-col items-center space-y-4">
-          <div className="p-6 bg-destructive/10 rounded-full animate-pulse">
-            <Skull className="w-16 h-16 text-destructive" />
+        <div className="flex flex-col items-center space-y-6">
+          <div className="p-8 bg-destructive/10 rounded-full animate-pulse">
+            <Skull className="w-24 h-24 text-destructive" />
           </div>
-          <div className="space-y-2">
-            <h1 className="text-3xl font-bold text-destructive">{t("game.gameOver")}!</h1>
-            <p className="text-lg text-muted-foreground">{t("game.oneWrongAnswer")}</p>
+          <div className="space-y-3">
+            <h1 className="text-5xl font-bold text-destructive">{t("game.gameOver")}!</h1>
+            <p className="text-2xl text-muted-foreground">{t("game.oneWrongAnswer")}</p>
           </div>
         </div>
       </div>
 
       {/* Performance summary */}
-      <Card className="p-6 w-full bg-card border-2">
-        <div className="space-y-4">
+      <Card className="p-8 w-full bg-card border-2">
+        <div className="space-y-6">
           {/* Round reached */}
           <div className="text-center">
-            <div className="text-4xl font-bold text-primary mb-2">
+            <div className="text-6xl font-bold text-primary mb-3">
               Round {currentRound}
             </div>
-            <div className="text-sm text-muted-foreground">{t("game.highestRoundReached")}</div>
+            <div className="text-xl text-muted-foreground">{t("game.highestRoundReached")}</div>
           </div>
 
           {/* Performance level */}
-          <div className="text-center p-3 bg-muted/50 rounded-lg">
-            <div className={`text-lg font-bold ${performance.color} mb-1`}>
+          <div className="text-center p-4 bg-muted/50 rounded-lg">
+            <div className={`text-2xl font-bold ${performance.color} mb-2`}>
               {performance.level}
             </div>
-            <div className="text-sm text-muted-foreground">
+            <div className="text-lg text-muted-foreground">
               {performance.message}
             </div>
           </div>
 
           {/* Stats breakdown */}
-          <div className="space-y-2">
+          <div className="space-y-3">
             <div className={`flex justify-between items-center ${isRTL ? "flex-row-reverse" : ""}`}>
-              <span className="text-sm text-muted-foreground flex items-center gap-2">
-                <Target className="w-4 h-4" />
+              <span className="text-lg text-muted-foreground flex items-center gap-3">
+                <Target className="w-6 h-6" />
                 {t("game.correctAnswers")}
               </span>
-              <span className="font-bold text-success">{correctAnswers}</span>
+              <span className="font-bold text-success text-xl">{correctAnswers}</span>
             </div>
             <div className={`flex justify-between items-center ${isRTL ? "flex-row-reverse" : ""}`}>
-              <span className="text-sm text-muted-foreground flex items-center gap-2">
-                <Target className="w-4 h-4" />
+              <span className="text-lg text-muted-foreground flex items-center gap-3">
+                <Target className="w-6 h-6" />
                 {t("game.difficultyLevel")}
               </span>
-              <span className="font-bold text-secondary">{Math.min(Math.floor(currentRound / 2) + 1, 10)}</span>
+              <span className="font-bold text-secondary text-xl">{Math.min(Math.floor(currentRound / 2) + 1, 10)}</span>
             </div>
           </div>
         </div>
       </Card>
 
       {/* Action buttons */}
-      <div className="flex flex-col gap-3 w-full">
+      <div className="flex flex-col gap-4 w-full">
         <Button
           onClick={onPlayAgain}
           size="lg"
-          className="flex items-center justify-center space-x-2 text-lg px-6 py-4 bg-primary hover:bg-primary/90 text-primary-foreground font-bold rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105"
+          className="flex items-center justify-center space-x-3 text-2xl px-10 py-6 bg-primary hover:bg-primary/90 text-primary-foreground font-bold rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105"
         >
-          <RotateCcw className="w-5 h-5" />
+          <RotateCcw className="w-7 h-7" />
           <span>{t("game.tryAgain")}</span>
         </Button>
 
@@ -101,16 +101,16 @@ export function GameOverScreen({ currentRound, correctAnswers, onPlayAgain }: Ga
           onClick={() => window.location.reload()}
           variant="outline"
           size="lg"
-          className="flex items-center justify-center space-x-2 text-lg px-6 py-4 font-bold rounded-xl transition-all duration-200 hover:scale-105"
+          className="flex items-center justify-center space-x-3 text-2xl px-10 py-6 font-bold rounded-xl transition-all duration-200 hover:scale-105"
         >
-          <Home className="w-5 h-5" />
+          <Home className="w-7 h-7" />
           <span>{t("game.exit")}</span>
         </Button>
       </div>
 
       {/* Encouragement message */}
-      <div className="text-sm text-muted-foreground max-w-sm">
-        <p className="font-medium mb-1">💡 {t("game.proTip")}</p>
+      <div className="text-lg text-muted-foreground">
+        <p className="font-medium mb-2">💡 {t("game.proTip")}</p>
         <p>{t("game.memoryImproves")}</p>
       </div>
     </div>
