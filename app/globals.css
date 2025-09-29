@@ -11,47 +11,56 @@
   --card-foreground: #000000;
   --popover: #ffffff;
   --popover-foreground: #000000;
-  --primary: #8b5cf6; /* Vivid Purple */
+  --primary: #7b4282; /* Medium Purple - now primary */
   --primary-foreground: #ffffff;
-  /* Replaced invisible light purple with visible brand colors */
-  --secondary: #00a3ff; /* Neon Blue instead of invisible light purple */
+  /* Updated secondary to match brand orange */
+  --secondary: #c98540; /* Medium Orange - now secondary */
   --secondary-foreground: #ffffff;
-  --muted: #f8f9fa; /* Light gray instead of invisible purple tint */
+  --muted: #f8f9fa; /* Light gray */
   --muted-foreground: #6b7280;
-  --accent: #ff00ff; /* Pink accent */
+  --accent: #5d3361; /* Dark Purple accent */
   --accent-foreground: #ffffff;
-  --destructive: #ff2d55; /* Red from brand palette */
+  --destructive: #b84444; /* Bright red for errors */
   --destructive-foreground: #ffffff;
-  --success: #00ff73; /* Neon Green from brand palette */
-  --success-foreground: #000000;
-  --border: #e2e8f0; /* Visible light gray border instead of invisible purple */
-  --input: #f8f9fa; /* Light gray input background instead of invisible purple */
-  --ring: #8b5cf6; /* Vivid Purple for focus rings */
-  --chart-1: #8b5cf6; /* Vivid Purple */
-  --chart-2: #ff00ff; /* Pink */
-  --chart-3: #ffd700; /* Yellow */
-  --chart-4: #00ff73; /* Neon Green */
-  --chart-5: #00a3ff; /* Neon Blue */
+  --success: #4a8f6a; /* Bright green for success */
+  --success-foreground: #ffffff;
+  --border: #b5b8ba; /* Light neutral gray border */
+  --input: #f8f9fa; /* Light gray input background */
+  --ring: #7b4282; /* Medium Purple for focus rings */
+  --chart-1: #7b4282; /* Medium Purple */
+  --chart-2: #c98540; /* Medium Orange */
+  --chart-3: #a087a6; /* Light Purple */
+  --chart-4: #e8a968; /* Light Orange */
+  --chart-5: #5d3361; /* Dark Purple */
   --radius: 1rem;
   --sidebar: #ffffff;
   --sidebar-foreground: #000000;
-  --sidebar-primary: #8b5cf6;
+  --sidebar-primary: #7b4282;
   --sidebar-primary-foreground: #ffffff;
-  --sidebar-accent: #faf9ff;
+  --sidebar-accent: #f0ecf5;
   --sidebar-accent-foreground: #000000;
-  --sidebar-border: #e9e5ff;
-  --sidebar-ring: #8b5cf6;
+  --sidebar-border: #b5b8ba;
+  --sidebar-ring: #7b4282;
 
-  /* Added brand-specific color variables for memory game */
-  --brand-purple: #8b5cf6;
+  /* Switched primary and secondary color variables */
+  --brand-primary-100: #a087a6; /* Light Purple - now primary */
+  --brand-primary-200: #7b4282; /* Medium Purple - now primary */
+  --brand-primary-300: #5d3361; /* Dark Purple - now primary */
+  --brand-secondary-100: #e8a968; /* Light Orange - now secondary */
+  --brand-secondary-200: #c98540; /* Medium Orange - now secondary */
+  --brand-secondary-300: #a66f2e; /* Dark Orange - now secondary */
+  --brand-neutral-100: #b5b8ba; /* Light Gray */
+  --brand-neutral-200: #95989a; /* Medium Gray */
+  --brand-neutral-300: #75787a; /* Dark Gray */
+
+  /* Legacy brand colors for backward compatibility */
+  --brand-orange: #c98540;
+  --brand-purple: #7b4282;
+  /* New primary/secondary mappings */
+  --brand-primary: #7b4282; /* Purple is now primary */
+  --brand-secondary: #c98540; /* Orange is now secondary */
   --brand-black: #000000;
   --brand-white: #ffffff;
-  --brand-pink: #ff00ff;
-  --brand-yellow: #ffd700;
-  --brand-green: #00ff73;
-  --brand-blue: #00a3ff;
-  --brand-red: #ff2d55;
-  --brand-orange: #ff7f00;
 }
 
 .dark {
@@ -62,30 +71,30 @@
   --card-foreground: #ffffff;
   --popover: #111111;
   --popover-foreground: #ffffff;
-  --primary: #a855f7; /* Slightly lighter purple for dark mode */
+  --primary: #a087a6; /* Light Purple for dark mode - now primary */
   --primary-foreground: #000000;
-  /* Replaced invisible dark purple with visible brand colors */
-  --secondary: #00a3ff; /* Neon Blue remains visible in dark mode */
-  --secondary-foreground: #ffffff;
-  --muted: #1e293b; /* Visible dark gray instead of invisible dark purple */
+  /* Updated secondary to match brand orange */
+  --secondary: #e8a968; /* Light Orange for dark mode - now secondary */
+  --secondary-foreground: #000000;
+  --muted: #2a2a2a; /* Dark gray */
   --muted-foreground: #9ca3af;
-  --accent: #ff00ff; /* Pink accent remains vibrant */
+  --accent: #5d3361; /* Dark Purple accent for dark mode */
   --accent-foreground: #000000;
-  --destructive: #ff2d55;
+  --destructive: #b84444; /* Bright red for errors in dark mode */
   --destructive-foreground: #ffffff;
-  --success: #00ff73;
+  --success: #4a8f6a; /* Bright green for success in dark mode */
   --success-foreground: #000000;
-  --border: #334155; /* Visible dark gray border instead of invisible dark purple */
-  --input: #1e293b; /* Visible dark gray input background */
-  --ring: #a855f7;
+  --border: #75787a; /* Dark neutral gray border */
+  --input: #2a2a2a; /* Dark gray input background */
+  --ring: #a087a6;
   --sidebar: #000000;
   --sidebar-foreground: #ffffff;
-  --sidebar-primary: #a855f7;
+  --sidebar-primary: #a087a6;
   --sidebar-primary-foreground: #000000;
-  --sidebar-accent: #1a0f3d;
+  --sidebar-accent: #2d2833;
   --sidebar-accent-foreground: #ffffff;
-  --sidebar-border: #4c1d95;
-  --sidebar-ring: #a855f7;
+  --sidebar-border: #75787a;
+  --sidebar-ring: #a087a6;
 }
 
 @theme inline {
@@ -131,22 +140,28 @@
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
 
-  /* Added brand color utilities */
+  /* Updated brand color utilities */
+  --color-brand-primary-100: var(--brand-primary-100);
+  --color-brand-primary-200: var(--brand-primary-200);
+  --color-brand-primary-300: var(--brand-primary-300);
+  --color-brand-secondary-100: var(--brand-secondary-100);
+  --color-brand-secondary-200: var(--brand-secondary-200);
+  --color-brand-secondary-300: var(--brand-secondary-300);
+  --color-brand-neutral-100: var(--brand-neutral-100);
+  --color-brand-neutral-200: var(--brand-neutral-200);
+  --color-brand-neutral-300: var(--brand-neutral-300);
+
+  /* Legacy brand color utilities */
+  --color-brand-orange: var(--brand-orange);
   --color-brand-purple: var(--brand-purple);
   --color-brand-black: var(--brand-black);
   --color-brand-white: var(--brand-white);
-  --color-brand-pink: var(--brand-pink);
-  --color-brand-yellow: var(--brand-yellow);
-  --color-brand-green: var(--brand-green);
-  --color-brand-blue: var(--brand-blue);
-  --color-brand-red: var(--brand-red);
-  --color-brand-orange: var(--brand-orange);
 }
 
 @layer base {
   * {
     border-color: var(--border);
-    outline-color: rgba(139, 92, 246, 0.5); /* Purple focus outline */
+    outline-color: rgba(123, 66, 130, 0.5); /* Purple focus outline */
   }
   body {
     @apply bg-background text-foreground font-sans;
@@ -154,7 +169,8 @@
 
   [dir="rtl"] {
     direction: rtl;
-    font-family: var(--font-arabic), var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+    font-family: var(--font-arabic), var(--font-sans), ui-sans-serif, system-ui,
+      sans-serif;
   }
 
   [dir="ltr"] {
@@ -177,7 +193,8 @@
   }
 
   .font-arabic {
-    font-family: var(--font-arabic), var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+    font-family: var(--font-arabic), var(--font-sans), ui-sans-serif, system-ui,
+      sans-serif;
   }
 }
 
@@ -202,17 +219,31 @@
     .kiosk-container {
       padding: 3rem;
     }
-    
+
     /* Scale up text and elements for large kiosk displays */
-    .kiosk-text-lg { font-size: 1.5rem; }
-    .kiosk-text-xl { font-size: 2rem; }
-    .kiosk-text-2xl { font-size: 2.5rem; }
-    .kiosk-text-3xl { font-size: 3rem; }
-    .kiosk-text-4xl { font-size: 4rem; }
-    
+    .kiosk-text-lg {
+      font-size: 1.5rem;
+    }
+    .kiosk-text-xl {
+      font-size: 2rem;
+    }
+    .kiosk-text-2xl {
+      font-size: 2.5rem;
+    }
+    .kiosk-text-3xl {
+      font-size: 3rem;
+    }
+    .kiosk-text-4xl {
+      font-size: 4rem;
+    }
+
     /* Scale up spacing for large displays */
-    .kiosk-space-y-6 > * + * { margin-top: 2rem; }
-    .kiosk-space-y-8 > * + * { margin-top: 2.5rem; }
+    .kiosk-space-y-6 > * + * {
+      margin-top: 2rem;
+    }
+    .kiosk-space-y-8 > * + * {
+      margin-top: 2.5rem;
+    }
   }
 
   .animate-fade-in {
@@ -243,7 +274,39 @@
     direction: ltr;
   }
 
-  /* Brand color utilities */
+  /* Updated brand color utilities */
+  .bg-brand-primary-100 {
+    background-color: var(--brand-primary-100);
+  }
+  .bg-brand-primary-200 {
+    background-color: var(--brand-primary-200);
+  }
+  .bg-brand-primary-300 {
+    background-color: var(--brand-primary-300);
+  }
+  .bg-brand-secondary-100 {
+    background-color: var(--brand-secondary-100);
+  }
+  .bg-brand-secondary-200 {
+    background-color: var(--brand-secondary-200);
+  }
+  .bg-brand-secondary-300 {
+    background-color: var(--brand-secondary-300);
+  }
+  .bg-brand-neutral-100 {
+    background-color: var(--brand-neutral-100);
+  }
+  .bg-brand-neutral-200 {
+    background-color: var(--brand-neutral-200);
+  }
+  .bg-brand-neutral-300 {
+    background-color: var(--brand-neutral-300);
+  }
+
+  /* Legacy brand color utilities */
+  .bg-brand-orange {
+    background-color: var(--brand-orange);
+  }
   .bg-brand-purple {
     background-color: var(--brand-purple);
   }
@@ -253,25 +316,39 @@
   .bg-brand-white {
     background-color: var(--brand-white);
   }
-  .bg-brand-pink {
-    background-color: var(--brand-pink);
+
+  .text-brand-primary-100 {
+    color: var(--brand-primary-100);
   }
-  .bg-brand-yellow {
-    background-color: var(--brand-yellow);
+  .text-brand-primary-200 {
+    color: var(--brand-primary-200);
   }
-  .bg-brand-green {
-    background-color: var(--brand-green);
+  .text-brand-primary-300 {
+    color: var(--brand-primary-300);
   }
-  .bg-brand-blue {
-    background-color: var(--brand-blue);
+  .text-brand-secondary-100 {
+    color: var(--brand-secondary-100);
   }
-  .bg-brand-red {
-    background-color: var(--brand-red);
+  .text-brand-secondary-200 {
+    color: var(--brand-secondary-200);
   }
-  .bg-brand-orange {
-    background-color: var(--brand-orange);
+  .text-brand-secondary-300 {
+    color: var(--brand-secondary-300);
+  }
+  .text-brand-neutral-100 {
+    color: var(--brand-neutral-100);
+  }
+  .text-brand-neutral-200 {
+    color: var(--brand-neutral-200);
+  }
+  .text-brand-neutral-300 {
+    color: var(--brand-neutral-300);
   }
 
+  /* Legacy text color utilities */
+  .text-brand-orange {
+    color: var(--brand-orange);
+  }
   .text-brand-purple {
     color: var(--brand-purple);
   }
@@ -281,25 +358,39 @@
   .text-brand-white {
     color: var(--brand-white);
   }
-  .text-brand-pink {
-    color: var(--brand-pink);
+
+  .border-brand-primary-100 {
+    border-color: var(--brand-primary-100);
   }
-  .text-brand-yellow {
-    color: var(--brand-yellow);
+  .border-brand-primary-200 {
+    border-color: var(--brand-primary-200);
   }
-  .text-brand-green {
-    color: var(--brand-green);
+  .border-brand-primary-300 {
+    border-color: var(--brand-primary-300);
   }
-  .text-brand-blue {
-    color: var(--brand-blue);
+  .border-brand-secondary-100 {
+    border-color: var(--brand-secondary-100);
   }
-  .text-brand-red {
-    color: var(--brand-red);
+  .border-brand-secondary-200 {
+    border-color: var(--brand-secondary-200);
   }
-  .text-brand-orange {
-    color: var(--brand-orange);
+  .border-brand-secondary-300 {
+    border-color: var(--brand-secondary-300);
+  }
+  .border-brand-neutral-100 {
+    border-color: var(--brand-neutral-100);
+  }
+  .border-brand-neutral-200 {
+    border-color: var(--brand-neutral-200);
+  }
+  .border-brand-neutral-300 {
+    border-color: var(--brand-neutral-300);
   }
 
+  /* Legacy border color utilities */
+  .border-brand-orange {
+    border-color: var(--brand-orange);
+  }
   .border-brand-purple {
     border-color: var(--brand-purple);
   }
@@ -308,24 +399,6 @@
   }
   .border-brand-white {
     border-color: var(--brand-white);
-  }
-  .border-brand-pink {
-    border-color: var(--brand-pink);
-  }
-  .border-brand-yellow {
-    border-color: var(--brand-yellow);
-  }
-  .border-brand-green {
-    border-color: var(--brand-green);
-  }
-  .border-brand-blue {
-    border-color: var(--brand-blue);
-  }
-  .border-brand-red {
-    border-color: var(--brand-red);
-  }
-  .border-brand-orange {
-    border-color: var(--brand-orange);
   }
 }
 
