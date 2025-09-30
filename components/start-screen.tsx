@@ -126,6 +126,7 @@ export function StartScreen({ onStart, highScore }: StartScreenProps) {
           <p className="text-xl text-primary mt-1">{t("game.firstRecord")}</p>
         </div>
       )}
+      <p className="text-2xl text-gray-500 mb-8">Powered by Engima</p>
     </div>
   );
 }
